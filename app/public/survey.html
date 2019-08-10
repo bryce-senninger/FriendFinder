@@ -8,6 +8,10 @@
     <title>Friend Finder Survey</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -20,107 +24,194 @@
             width: 1024px;
             margin: 0 auto;
         }
+
         #wrapper2 {
             margin: 0 auto;
             text-align: center;
         }
+
         .jumbotron {
             margin-top: 1%;
             text-align: center;
+            background-image: linear-gradient(to bottom, #60a381, #218ed1);
         }
+
+        #links {
+            color: white;
+        }
+
         label {
             color: white;
         }
+
         .btn {
             background-image: linear-gradient(to bottom, #60a381, #218ed1);
+            color: black;
         }
+
         .btn:hover {
             background-image: linear-gradient(to bottom, #407058, #15608f);
         }
+
+        h2 {
+            background-image: linear-gradient(to bottom, #60a381, #218ed1);
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            margin-bottom: 1%;
+            line-height: 40px;
+        }
     </style>
     <div id="wrapper">
-
         <div class="jumbotron">
             <h1 class="display-4">Friend Finder Survey</h1>
             <hr class="my-4">
-            <p>Tell us a bit about your wonderful self!</p>
+            <p>Go on, tell us a bit about your wonderful self!</p>
         </div>
         <form>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">On a Saturday night, you'd love to be out on the town.</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1 (Very Untrue)</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5 (Very True)</option>
-                </select>
+                <h2>Name (Required)</h2>
+                <input type="name" class="form-control" id="userName" placeholder="enter your name here">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Books are better than movies.</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1 (Very Untrue)</option>
+                <h2>Image Link (Required)</h2>
+                <input type="link" class="form-control" id="userPhoto" placeholder="enter your image url here">
+            </div>
+            <h2>Question: 1</h2>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">On a Saturday night, would you love to be out on the
+                    town?</label>
+                <select class="form-control" id="score1">
+                    <option>1 (No thanks, staying in!)</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very True)</option>
+                    <option>5 (Let's party!)</option>
                 </select>
             </div>
+            <h2>Question: 2</h2>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">A walk through a museum sounds like a fun way to spend an afternoon.</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1 (Very Untrue)</option>
+                <label for="exampleFormControlSelect1">Are books better than movies?</label>
+                <select class="form-control" id="score2">
+                    <option>1 (Movies all the way!)</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very True)</option>
+                    <option>5 (Books are always better!)</option>
                 </select>
             </div>
+            <h2>Question: 3</h2>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">You'd rather be in the mountains than in the city.</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1 (Very Untrue)</option>
+                <label for="exampleFormControlSelect1">Does a walk through an art museum sound like a great way to spend
+                    an afternoon?</label>
+                <select class="form-control" id="score3">
+                    <option>1 (Boring!)</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very True)</option>
+                    <option>5 (I could spend hours in a museum!)</option>
                 </select>
             </div>
+            <h2>Question: 4</h2>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">You pride yourself on your passion and knowledge of music.</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1 (Very Untrue)</option>
+                <label for="exampleFormControlSelect1">Would you rather be in the mountains than in the city?</label>
+                <select class="form-control" id="score4">
+                    <option>1 (And get mosquito bites? No thank you!)</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very True)</option>
+                    <option>5 (Any day! I love the great outdoors!)</option>
                 </select>
             </div>
+            <h2>Question: 5</h2>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Your career is something you are very passionate about.</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1 (Very Untrue)</option>
+                <label for="exampleFormControlSelect1">Do you enjoy going to concerts?</label>
+                <select class="form-control" id="score5">
+                    <option>1 (Count me out!)</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very True)</option>
+                    <option>5 (I live for live music!)</option>
                 </select>
             </div>
+            <h2>Question: 6</h2>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Steady communication is essential to your relationships.</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1 (Very Untrue)</option>
+                <label for="exampleFormControlSelect1">Are you passionate about your career?</label>
+                <select class="form-control" id="score6">
+                    <option>1 (Work? Absolutely not!)</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very True)</option>
+                    <option>5 (Yes! My career is super important to me!)</option>
+                </select>
+            </div>
+            <h2>Question: 7</h2>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Do you believe that steady communication is essential to
+                    maintaining a relationship?</label>
+                <select class="form-control" id="score7">
+                    <option>1 (I'll talk to you at...some point I'm sure!)</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5 (Goodmorning texts are a great way to start the day!)</option>
                 </select>
             </div>
         </form>
         <div id="wrapper2">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Find My Friend!</a>
+            <a id="submit" class="btn btn-primary btn-lg" href="" role="button">Find My Friend!</a>
         </div>
+        <p id="links">
+            <a href="../api/friends">API Friend List</a>
+            |
+            <a href="/home">Home</a>
+        </p>
     </div>
 </body>
+<script type="text/javascript">
+
+    function clearVals() {
+        $("#userName").val("");
+        $("#userPhoto").val("");
+        $("#score1").val("");
+        $("#score2").val("");
+        $("#score3").val("");
+        $("#score4").val("");
+        $("#score5").val("");
+        $("#score6").val("");
+        $("#score7").val("");
+    }
+
+    window.onload = clearVals();
+
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+        let newFriend = {
+            name: $("#userName").val().trim(),
+            photo: $("#userPhoto").val().trim(),
+            scores: [parseInt($("#score1").val()), parseInt($("#score2").val()), parseInt($("#score3").val()), parseInt($("#score4").val()), parseInt($("#score5").val()), parseInt($("#score6").val()), parseInt($("#score7").val())]
+        };
+        console.log(newFriend);
+        $.ajax({
+            url: "http://localhost:8080/api/friends",
+            method: "GET"
+        }).then(function(response) {
+            // for (i = 0; i < newFriend.scores.length; i++) {
+            //     for (i = 0; i < response.length; i++) {
+            //         let difference +=
+            //     }
+            // }
+            console.log(response);
+        });
+        $.post("/api/friends", newFriend, function (data) {
+            if (data) {
+                alert("You've been added to the friends list!");
+            } else {
+                alert("uh oh");
+            }
+            clearVals();
+        });
+    });
+</script>
 
 </html>

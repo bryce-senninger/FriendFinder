@@ -15,20 +15,28 @@
         body {
             background-color: rgb(46, 45, 45);
         }
+
         #wrapper {
             width: 1024px;
             margin: 0 auto;
         }
+
         .jumbotron {
             margin-top: 1%;
             text-align: center;
-        }
-        .btn {
             background-image: linear-gradient(to bottom, #60a381, #218ed1);
         }
-        .btn:hover {
-            background-image: linear-gradient(to bottom, #407058, #15608f);
+
+        .btn {
+            background-image: linear-gradient(to bottom, #c4c7c6, #6b6d6d);
+            border-color: rgb(105, 105, 105);
+            color: black;
         }
+
+        .btn:hover {
+            background-image: linear-gradient(to bottom, #7a7c7c, #434344);
+        }
+
         #links {
             margin-top: 3%;
             color: white;
@@ -43,7 +51,7 @@
             <a class="btn btn-primary btn-lg" href="/survey" role="button">Start the Survey</a>
         </div>
         <p id="links">
-            <a href="../data/friends.js">API Friend List</a>
+            <a href="../api/friends">API Friend List</a>
             |
             <a href="https://github.com/bryce-senninger/FriendFinder">GitHub Repo</a>
         </p>

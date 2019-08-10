@@ -1,13 +1,13 @@
 //load data//
-let tableData = require("../data/friends");
+let friendData = require("../data/friends");
 
 //routing//
 module.exports = function(app) {
     app.get("/api/friends", function(req, res) {
-        res.json(tableData);
+        res.json(friendData);
     });
     app.post("/api/friends", function(req, res) {
-        tableData.push(req.body);
+        friendData.push(req.body);
         res.json(true);
     });
 };
