@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friend Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: rgb(46, 45, 45);
+        }
+        #wrapper {
+            width: 1024px;
+            margin: 0 auto;
+        }
+        .jumbotron {
+            margin-top: 1%;
+            text-align: center;
+        }
+        .btn {
+            background-image: linear-gradient(to bottom, #60a381, #218ed1);
+        }
+        .btn:hover {
+            background-image: linear-gradient(to bottom, #407058, #15608f);
+        }
+        #links {
+            margin-top: 3%;
+            color: white;
+        }
+    </style>
+    <div id="wrapper">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Friend Finder!</h1>
+            <p class="lead">Answer a few basic questions, and get matched with someone just like you!</p>
+            <hr class="my-4">
+            <p>What are you waiting for? Take the survey now and get connected.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Start the Survey</a>
+        </div>
+        <p id="links">
+            <a href="../data/friends.js">API Friend List</a>
+            |
+            <a href="https://github.com/bryce-senninger/FriendFinder">GitHub Repo</a>
+        </p>
+    </div>
+</body>
+
+</html>
