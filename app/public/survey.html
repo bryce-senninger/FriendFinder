@@ -162,9 +162,11 @@
             <a id="submit" class="btn btn-primary btn-lg" href="" role="button">Find My Friend!</a>
         </div>
         <p id="links">
+            <a href="/home">Home</a>
+            |
             <a href="../api/friends">API Friend List</a>
             |
-            <a href="/home">Home</a>
+            <a href="https://github.com/bryce-senninger/FriendFinder">GitHub Repo</a>
         </p>
     </div>
 </body>
@@ -184,6 +186,8 @@
 
     window.onload = clearVals();
 
+    let differences = [];
+
     $("#submit").on("click", function (event) {
         event.preventDefault();
         let newFriend = {
@@ -195,13 +199,15 @@
         $.ajax({
             url: "http://localhost:8080/api/friends",
             method: "GET"
-        }).then(function(response) {
-            // for (i = 0; i < newFriend.scores.length; i++) {
-            //     for (i = 0; i < response.length; i++) {
-            //         let difference +=
-            //     }
-            // }
-            console.log(response);
+        }).then(function (response) {
+            for (x = 0; x < response.length; x++) {
+                for (i = 0; i < newFriend.scores.length; i++) {
+                    var difference = function (a, b) { return Math.abs(a - b); }
+                    let currentDifference = (difference(newFriend.scores[i], response[x].scores[i]))
+                    differences.push(difference(newFriend.scores[i], response[x].scores[i]));
+                }
+                console.log(differences.reduce((a, b) => a + b, 0));
+            }
         });
         $.post("/api/friends", newFriend, function (data) {
             if (data) {
