@@ -30,6 +30,11 @@
             text-align: center;
         }
 
+        img {
+            height: 300px;
+            width:200px;
+        }
+
         .jumbotron {
             margin-top: 1%;
             text-align: center;
@@ -61,8 +66,37 @@
             margin-bottom: 1%;
             line-height: 40px;
         }
+
+        .modal-head {
+            background-image: linear-gradient(to bottom, #60a381, #218ed1);
+            color: black;
+            text-align: center !important;
+        }
+
+        .modal-title {
+            color: black;
+        }
+
+        #myModal {
+            text-align: center;
+        }
+
     </style>
     <div id="wrapper">
+        <div id="myModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-head">
+                        <h2 class="modal-title">Friend Found!</h2>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="jumbotron">
             <h1 class="display-4">Friend Finder Survey</h1>
             <hr class="my-4">
@@ -187,6 +221,8 @@
     window.onload = clearVals();
 
     let differences = [];
+    let currentDifference = [];
+    let differenceSum;
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
@@ -195,26 +231,25 @@
             photo: $("#userPhoto").val().trim(),
             scores: [parseInt($("#score1").val()), parseInt($("#score2").val()), parseInt($("#score3").val()), parseInt($("#score4").val()), parseInt($("#score5").val()), parseInt($("#score6").val()), parseInt($("#score7").val())]
         };
-        console.log(newFriend);
         $.ajax({
             url: "http://localhost:8080/api/friends",
             method: "GET"
         }).then(function (response) {
             for (x = 0; x < response.length; x++) {
+                currentDifference = [];
                 for (i = 0; i < newFriend.scores.length; i++) {
-                    var difference = function (a, b) { return Math.abs(a - b); }
-                    let currentDifference = (difference(newFriend.scores[i], response[x].scores[i]))
-                    differences.push(difference(newFriend.scores[i], response[x].scores[i]));
+                    let difference = function (a, b) { return Math.abs(a - b); }
+                    currentDifference.push((difference(newFriend.scores[i], response[x].scores[i])));
                 }
-                console.log(differences.reduce((a, b) => a + b, 0));
+                differenceSum = currentDifference.reduce((a, b) => a + b);
+                differences.push(differenceSum);
             }
+            let minDifference = differences.indexOf(Math.min(...differences));
+            $(".modal-body").append("<h3>" + response[minDifference].name + "<h3>");
+            $(".modal-body").append("<img src=" + response[minDifference].photo + "alt='friendphoto'>");
+            $("#myModal").modal('show');
         });
         $.post("/api/friends", newFriend, function (data) {
-            if (data) {
-                alert("You've been added to the friends list!");
-            } else {
-                alert("uh oh");
-            }
             clearVals();
         });
     });
