@@ -256,12 +256,12 @@
             let minDifference = differences.indexOf(Math.min(...differences));
             $(".modal-body").append("<h3>" + response[minDifference].name + "<h3>");
             $(".modal-body").append("<img src=" + response[minDifference].photo + "alt='friendphoto'>");
-            $(".modal-body").append("<p>You and " + response[minDifference].name + " had very similar survey results. We think you'd get along great!</p>")
+            $(".modal-body").append("<p>You and " + response[minDifference].name + " had very similar survey results. We think you'd get along great!</p>");
             $("#myModal").modal('show');
-        });
-        $.post("/api/friends", newFriend, function (data) {
-            clearVals();
-            differences = [];
+        }).then(function addNewFriend() {
+            $.post("/api/friends", newFriend, function (data) {
+                clearVals();
+            });
         });
     });
 </script>
