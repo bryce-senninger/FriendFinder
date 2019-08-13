@@ -44,4 +44,4 @@ This project uses:
 
 Github Repository: https://github.com/bryce-senninger/FriendFinder
 
-Heroku Deployed App: https://expressfriendfind.herokuapp.com/survey
+Heroku Deployed App: https://expressfriendfind.herokuapp.com

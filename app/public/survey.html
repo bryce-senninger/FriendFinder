@@ -240,7 +240,7 @@
             scores: [parseInt($("#score1").val()), parseInt($("#score2").val()), parseInt($("#score3").val()), parseInt($("#score4").val()), parseInt($("#score5").val()), parseInt($("#score6").val()), parseInt($("#score7").val())]
         };
         $.ajax({
-            url: "http://localhost:8080/api/friends",
+            url: "/api/friends",
             method: "GET"
         }).then(function (response) {
             let differences = [];
