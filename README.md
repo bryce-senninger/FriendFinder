@@ -34,7 +34,7 @@ This directory contains our object to be displayed as JSON. This JSON will be us
 
 This project uses:
 * Javascript
-* jQuery
+    * jQuery
 * Node.js
 * npm dependencies
     * express
